@@ -20,6 +20,6 @@ module.exports = class BlockExplodeEvent extends Event {
 	}
 
 	toString() {
-		return `${this.block} exploded`
+		return `${this.block} exploded, destroying ${this.destroyed_blocks} blocks`
 	}
 }
