@@ -13,7 +13,19 @@ Number.prototype.inRange = function(min, max) {
  * 			max: number,
  * 			min: number?
  * 		}?,
- * 		event_types: String[]?,
+ * 		event_types: (
+ * 			 "block_broken"
+ * 			|"block_explode"
+ * 			|"block_place"
+ * 			|"entity_attacked"
+ * 			|"entity_damaged"
+ * 			|"entity_death"
+ * 			|"entity_explode"
+ * 			|"inventory_click"
+ * 			|"inventory_close"
+ * 			|"inventory_move"
+ * 			|"inventory_open"
+ * 		)[]?,
  * 		names: String[]?,
  * 		timeframe: {
  * 			after: Date?,
