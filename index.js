@@ -23,4 +23,4 @@ console.log(filter.filter(loadedEvents, {
 		before: new Date('3/26/21 8:00 PM'),
 		after: new Date('3/25/21 8:00 PM'),
 	},
-}))
+}).join('\n'))

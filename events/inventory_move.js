@@ -35,4 +35,8 @@ module.exports = class InventoryMoveEvent extends Event {
 			this.initiator.holder.type == 'entity' ? this.initiator.holder.entity.name : undefined,
 		]
 	}
+	
+	toString() {
+		return `${this.initiator} moved ${this.item} from ${this.source} to ${this.destination}`
+	}
 }

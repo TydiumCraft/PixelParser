@@ -45,6 +45,6 @@ module.exports = class Inventory {
 	}
 
 	toString() {
-		return `${this.type} inventory`
+		return `${this.type} inventory held by ${this.holder}`
 	}
 }

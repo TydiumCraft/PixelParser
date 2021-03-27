@@ -7,7 +7,7 @@ module.exports = class BlockBreakEvent extends PlayerEvent {
 		super(data)
 		/** The block broken by this event */
 		this.block = new Block(data.block)
-		
+
 		this.categories.push('block','block_breaker')
 	}
 	/**
@@ -19,5 +19,9 @@ module.exports = class BlockBreakEvent extends PlayerEvent {
 			this.block.location,
 			this.player.location
 		]
+	}
+
+	toString() {
+		return `${this.player} broke ${this.block}`
 	}
 }

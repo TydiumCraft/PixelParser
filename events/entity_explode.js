@@ -8,4 +8,7 @@ module.exports = class EntityExplodeEvent extends EntityEvent {
 
 		this.categories.push('explosion', 'block_breaker', 'block')
 	}
+	toString() {
+		return `${this.entity} exploded`
+	}
 }

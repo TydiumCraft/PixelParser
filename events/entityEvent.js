@@ -1,4 +1,5 @@
 const Entity = require("../classes/entity")
+const Player = require("../classes/player")
 const Event = require("./index")
 
 module.exports = class EntityEvent extends Event {
@@ -8,6 +9,9 @@ module.exports = class EntityEvent extends Event {
 		this.entity = Entity.get(data.entity)
 
 		this.categories.push('entity')
+		if (this.entity instanceof Player) {
+			this.categories.push('player')
+		}
 	}
 
 	/**

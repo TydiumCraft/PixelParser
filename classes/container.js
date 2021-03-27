@@ -47,4 +47,17 @@ module.exports = class Container {
 				return []
 		}
 	}
+
+	toString() {
+		switch (this.type) {
+			case 'entity':
+				return `container ${this.entity}`
+			case 'block':
+				return `container ${this.block}`
+			case 'double_chest':
+				return `double chest at ${this.left_side.location}`
+			default:
+				return 'invalid container'
+		}
+	}
 }

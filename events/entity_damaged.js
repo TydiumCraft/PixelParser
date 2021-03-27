@@ -43,4 +43,8 @@ module.exports = class EntityAttackedEvent extends EntityEvent {
 		 */
 		this.cause = data.cause
 	}
+
+	toString() {
+		return `${this.attacker} took ${this.damage} damage via ${this.cause}`
+	}
 }

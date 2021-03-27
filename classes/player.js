@@ -23,7 +23,7 @@ module.exports = class Player extends LivingEntity {
 	}
 
 	toString() {
-		return `Player ${this.name}`
+		return `Player ${this.name} at ${this.location}`
 	}
 
 	/**

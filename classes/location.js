@@ -68,6 +68,6 @@ module.exports = class Location {
 	}
 
 	toString() {
-		return `(${this.x}, ${this.y}, ${this.z}) in ${this.world}`
+		return `(${Math.floor(this.x)}, ${Math.floor(this.y)}, ${Math.floor(this.z)}) in ${this.world}`
 	}
 }

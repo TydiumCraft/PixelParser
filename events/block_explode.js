@@ -18,4 +18,8 @@ module.exports = class BlockExplodeEvent extends Event {
 	getLocations() {
 		return [this.block.location]
 	}
+
+	toString() {
+		return `${this.block} exploded`
+	}
 }

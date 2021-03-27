@@ -1,4 +1,5 @@
 const Entity = require("../classes/entity");
+const Player = require("../classes/player");
 const EntityEvent = require("./entityEvent");
 
 module.exports = class EntityAttackedEvent extends EntityEvent {
@@ -44,6 +45,10 @@ module.exports = class EntityAttackedEvent extends EntityEvent {
 		 * )}
 		 */
 		this.cause = data.cause
+		
+		if (this.attacker instanceof Player && !this.categories.includes('player')) {
+			this.categories.push('player')
+		}
 	}
 
 	/**
@@ -60,5 +65,9 @@ module.exports = class EntityAttackedEvent extends EntityEvent {
 	 */
 	getNames() {
 		return [this.entity.name, this.attacker.name]
+	}
+
+	toString() {
+		return `${this.attacker} attacked ${this.entity} via ${this.cause} for ${this.damage} damage`
 	}
 }

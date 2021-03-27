@@ -20,4 +20,8 @@ module.exports = class BlockPlaceEvent extends PlayerEvent {
 	getLocations() {
 		return [this.placed_block.location, this.player.location]
 	}
+
+	toString() {
+		return `${this.player} placed ${this.placed_block}`
+	}
 }

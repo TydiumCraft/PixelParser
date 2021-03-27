@@ -78,4 +78,7 @@ module.exports = class InventoryClickEvent extends InventoryEvent {
 		 */
 		this.click_type = data.click_type
 	}
+	toString() {
+		return `${this.player} ran ${this.action} on ${this.item} via ${this.click_type} in ${this.inventory}`
+	}
 }

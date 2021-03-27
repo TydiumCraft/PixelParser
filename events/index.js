@@ -65,4 +65,8 @@ module.exports = class Event {
 	getNames() {
 		return []
 	}
+
+	toString() {
+		return JSON.stringify(this.raw)
+	}
 }

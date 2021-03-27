@@ -24,4 +24,8 @@ module.exports = class InventoryEvent extends PlayerEvent {
 	getNames() {
 		return [this.player.name, this.inventory.holder.type == 'entity' ? this.inventory.holder.entity.name : undefined]
 	}
+
+	toString() {
+		return `${this.player} interacted with ${this.inventory}`
+	}
 }
