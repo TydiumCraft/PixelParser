@@ -6,6 +6,7 @@ Number.prototype.inRange = function(min, max) {
 }
 
 /**
+ * Filters the given array of events. Pass `true` to the last argument to invert the filter
  * @param {Event[]} events
  * @param {{
  * 		distance: {
@@ -111,8 +112,9 @@ Number.prototype.inRange = function(min, max) {
  * 			max: number?
  * 		}?
  * }} params 
+ * @param {boolean} invert
  */
-exports.filter = function filter(events, params) {
+exports.filter = function filter(events, params, invert) {
 	if (params.names) {
 		params.names = params.names.map(name => name.toLowerCase())
 	}
@@ -122,32 +124,32 @@ exports.filter = function filter(events, params) {
 	}
 	return events.filter(event => {
 		if (params.event_types && !params.event_types.includes(event.event)) {
-			return false
+			return invert
 		}
 		if (params.distance && !event.getLocations().find(location => location.getDistance(params.distance.location).inRange(params.distance.min, params.distance.max))) {
-			return false
+			return invert
 		}
 		if (params.names && !event.getNames().find(name => params.names.includes(name.toLowerCase()))) {
-			return false
+			return invert
 		}
 		if (params.damage_causes && (!event.cause || !params.damage_causes.includes(event.cause))) {
-			return false
+			return invert
 		}
 		if (params.timeframe && (!event.date || !event.date.getTime().inRange(params.timeframe.after.getTime(), params.timeframe.before.getTime()))) {
-			return false
+			return invert
 		}
-			return false
 		if (params.actions && (!event.action || !params.actions.find(event.action))) {
+			return invert
 		}
 		if (params.slot_types && (!event.slot_type || !params.slot_types.find(event.slot_type))) {
-			return false
+			return invert
 		}
 		if (params.damage && (!event.damage || event.damage.inRange(params.damage.min, params.damage.max))) {
-			return false
+			return invert
 		}
 		if (params.categories && !params.categories.find(item => event.categories.includes(item))) {
-			return false
+			return invert
 		}
-		return true
+		return !invert
 	})
 }
